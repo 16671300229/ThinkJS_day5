@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        table{
+            width: 15%;
+            text-align: center;
+            color: #000;
+        }
+        table tr:nth-child(1){
+            height: 30px;
+            font-size: 14px;
+            font-weight: bold;
+        }
+        table tr:nth-child(2) td:nth-child(2){
+            text-align: left;
+        }
+        table tr:nth-child(3) td:nth-child(2){
+            text-align: left;
+        }
+        table tr:nth-child(4) td:nth-child(2){
+            text-align: left;
+        }
+        input{
+            outline: none;
+            border: none;
+            padding: 5px;
+            background: #777777;
+            border-radius: 3px;
+            color: #fff;
+        }
+        input[type=submit]{
+            display: inline-block;
+            width: 80px;
+            background: #c7254e;
+            color: #fff;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+    </style>
+    <script src="/static/js/jquery.js"></script>
+</head>
+<body>
+<form action="/admin/admin/edit" method="post">
+    <table>
+        <tr>
+            <th colspan="2">修改用户</th>
+        </tr>
+        <tr>
+            <td>编号:</td>
+            <td><input type="text" value="{{user[0].id}}" name="id"/></td>
+        </tr>
+        <tr>
+            <td>账号:</td>
+            <td><input type="text" value="{{user[0].name}}" name="name"/></td>
+        </tr>
+        <tr>
+            <td>密码:</td>
+            <td><input type="password" value="{{user[0].pwd}}" name="pwd"/></td>
+        </tr>
+        <tr>
+            <td colspan="2"><input type="submit" value="提交"></td>
+        </tr>
+    </table>
+</form>
+</body>
+<script>
+    $(()=>{
+        $("tr:eq(1)").hide();
+    })
+</script>
+</html>
+
+

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        table{
+            width: 72%;
+            margin: 100px auto;
+            text-align: center;
+            color: #fff;
+        }
+        table tr:nth-child(1) td,table tr:nth-child(2) td{
+            background: #c7254e;
+        }
+        table td{
+            width: 18%;
+            height: 40px;
+            line-height: 40px;
+            background: #099;
+        }
+        button{
+            width: 80%;
+            background: none;
+            border: none;
+            outline:none;
+            color: white;
+        }
+        a{
+            text-decoration: none;
+            cursor: pointer;
+            color: #ff3;
+            margin-right: 8px;
+            text-align: center;
+            font-weight: bold;
+            display: inline-block;
+        }
+    </style>
+    <script src="/static/js/jquery.js"></script>
+</head>
+<body>
+<table>
+    <tr>
+        <td colspan="3"><a href='/admin/admin/regist'>添加</a></td>
+    </tr>
+    <tr>
+        <td>用户</td>
+        <td>密码</td>
+        <td>操作</td>
+    </tr>
+</table>
+<script>
+    $(()=>{
+        $.ajax({
+            url:"/admin/admin/findAll",
+            type:"POST",
+            success:res=>{
+                for(let o in res){
+                    $("table").append("<tr><td>"+res[o].name+"</td><td>"+res[o].pwd+"</td><td><a href='/admin/admin/delete?id="+res[o].id+"'>删除</a><a href='/admin/admin/edit?id="+res[o].id+"'>修改</a></td></tr>");
+                }
+            },
+            error:err=>{
+                console.log(err);
+            }
+        })
+    })
+</script>
+</body>
+</html>
