@@ -3,6 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <title>用户登录</title>
+    <link rel="stylesheet" type="text/css" href="/static/css/input.css"/>
+    <style>
+        span{
+            margin-right: 8px;
+        }
+    </style>
 </head>
 <body>
 <h4>Please login</h4>
@@ -10,14 +16,14 @@
     <div class="col-md-2">
         <form action="/admin/admin/login" method="POST">
             <div class="form-group">
-                <input class="form-control" type="text" name="name" placeholder="user name"/>
+                <span>账号:</span><input class="form-control" type="text" name="name"/>
             </div>
             <div class="form-group">
-                <input class="form-control" type="password" name="pwd" placeholder="password"/>
+                <span>密码:</span><input class="form-control" type="password" name="pwd"/>
             </div>
-            <hr color="#000" width="10%" align="left">
+            <hr color="#000" width="10.5%" align="left">
             <p id="d"></p>
-            <button class="btn btn-default" type="submit">登录</button>
+            <input class="btn btn-default" type="submit"、>
         </form>
     </div>
 </div>

@@ -1,5 +1,5 @@
 const fileCache = require('think-cache-file');
-const nunjucks = require('think-view-nunjucks');
+const ejs = require('think-view-ejs');
 const fileSession = require('think-session-file');
 const mysql = require('think-model-mysql');
 const {Console, File, DateFile} = require('think-logger3');
@@ -71,15 +71,22 @@ exports.session = {
  * @type {Object}
  */
 
+
+const defaultOptions={
+  cache:true
+}
 exports.view = {
-  type: 'nunjucks',
+  type: 'ejs',
   common: {
     viewPath: path.join(think.ROOT_PATH, 'view'),
     sep: '_',
     extname: '.html'
   },
-  nunjucks: {
-    handle: nunjucks
+  ejs: {
+    handle: ejs,
+    beforeRender:(ejs,handleOptions)=>{
+
+    }
   }
 };
 

@@ -2,7 +2,8 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>修改用户</title>
+    <link rel="stylesheet" type="text/css" href="/static/css/input.css"/>
     <style>
         table{
             width: 15%;
@@ -23,23 +24,6 @@
         table tr:nth-child(4) td:nth-child(2){
             text-align: left;
         }
-        input{
-            outline: none;
-            border: none;
-            padding: 5px;
-            background: #777777;
-            border-radius: 3px;
-            color: #fff;
-        }
-        input[type=submit]{
-            display: inline-block;
-            width: 80px;
-            background: #c7254e;
-            color: #fff;
-            font-weight: bold;
-            cursor: pointer;
-        }
-
     </style>
     <script src="/static/js/jquery.js"></script>
 </head>
@@ -51,15 +35,15 @@
         </tr>
         <tr>
             <td>编号:</td>
-            <td><input type="text" value="{{user[0].id}}" name="id"/></td>
+            <td><input type="text" value="<%=user[0].id%>" name="id"/></td>
         </tr>
         <tr>
             <td>账号:</td>
-            <td><input type="text" value="{{user[0].name}}" name="name"/></td>
+            <td><input type="text" value="<%=user[0].name%>" name="name"/></td>
         </tr>
         <tr>
             <td>密码:</td>
-            <td><input type="password" value="{{user[0].pwd}}" name="pwd"/></td>
+            <td><input type="password" value="<%=user[0].pwd%>" name="pwd"/></td>
         </tr>
         <tr>
             <td colspan="2"><input type="submit" value="提交"></td>

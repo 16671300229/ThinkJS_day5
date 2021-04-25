@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>主页</title>
     <style>
         table{
             width: 72%;
@@ -35,11 +35,18 @@
             font-weight: bold;
             display: inline-block;
         }
+        span{
+            text-align: right;
+            padding: 5px;
+        }
     </style>
     <script src="/static/js/jquery.js"></script>
 </head>
 <body>
 <table>
+    <tr id="info">
+        <td style="text-align: left;padding: 15px;font-size: 30px;line-height: 30px;color: cadetblue"><%=loginInfo%></td>
+    </tr>
     <tr>
         <td colspan="3"><a href='/admin/admin/regist'>添加</a></td>
     </tr>
@@ -62,7 +69,7 @@
             error:err=>{
                 console.log(err);
             }
-        })
+        });
     })
 </script>
 </body>
