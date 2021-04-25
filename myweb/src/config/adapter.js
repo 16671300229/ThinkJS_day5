@@ -83,10 +83,7 @@ exports.view = {
     extname: '.html'
   },
   ejs: {
-    handle: ejs,
-    beforeRender:(ejs,handleOptions)=>{
-
-    }
+    handle: ejs
   }
 };
 
@@ -95,7 +92,7 @@ exports.view = {
  * @type {Object}
  */
 exports.logger = {
-  type: isDev ? 'dateFile':'console' ,
+  type: isDev ? 'console':'dateFile' ,
   console: {
     handle: Console
   },
