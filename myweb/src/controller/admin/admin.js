@@ -57,7 +57,8 @@ module.exports=class extends Index{
                 let loginInfo=await this.cookie("loginInfo");
                 let obj=JSON.parse(loginInfo);
                 let post=this.post();
-                if(obj[0].name==="admin" || obj[0].name==="root" || post.name===obj[0].name){
+                let user=await new AdminService().queryById(post.id);
+                if(obj[0].name==="admin" || obj[0].name==="root" || user[0].name===obj[0].name){
                     await new AdminService().updateUser(post.id,post.name,post.pwd);
                     this.ctx.cookie("loginInfo",null);
                     this.redirect("index");
@@ -134,7 +135,7 @@ module.exports=class extends Index{
         if (loginInfo!==undefined){
             let obj=JSON.parse(loginInfo);
             this.assign("loginInfo",obj[0].name);
-            await this.display("admin/index.html")
+            await this.display("admin/index.html");
         }else{
             this.redirect("login");
         }
