@@ -1,8 +1,6 @@
 const Index=require("../Base");
 const BrandService=require("../../service/book");
 const fs = require('fs');
-const path = require('path');
-const rename = think.promisify(fs.rename, fs);
 module .exports=class extends Index{
     async indexAction() {
         const loginInfo=this.ctx.cookie("loginInfo");
