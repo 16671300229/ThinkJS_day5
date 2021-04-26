@@ -1,5 +1,9 @@
 const Index=require("../Base");
 const BrandService=require("../../service/book");
+//require("think-payload");
+const fs = require('fs');
+const path = require('path');
+const rename = think.promisify(fs.rename, fs);
 module .exports=class extends Index{
     async indexAction() {
         const loginInfo=this.ctx.cookie("loginInfo");
@@ -10,5 +14,25 @@ module .exports=class extends Index{
         }else {
             this.redirect("/admin/admin/login");
         }
+    }
+
+    async uploadAction(){
+        if (this.isPost){
+            const file=this.file("file");
+            if(file) {
+                const data=fs.readFileSync(file.path,"binary");
+                fs.writeFile(think.ROOT_PATH+"/www/static/upload/"+file.name,data,"binary",err => {
+                    if (err){
+                        console.log(err.toString());
+                    }
+                })
+            }
+        }else{
+            await this.display("book/upload.html");
+        }
+    }
+
+    async downloadAction(){
+        this.download(think.ROOT_PATH+"/www/static/upload/1.jpg","1.jpg");
     }
 }
