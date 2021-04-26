@@ -1,6 +1,5 @@
 const Index=require("../Base");
 const BrandService=require("../../service/book");
-//require("think-payload");
 const fs = require('fs');
 const path = require('path');
 const rename = think.promisify(fs.rename, fs);
