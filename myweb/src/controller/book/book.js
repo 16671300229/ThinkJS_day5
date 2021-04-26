@@ -32,7 +32,4 @@ module .exports=class extends Index{
         }
     }
 
-    async downloadAction(){
-        this.download(think.ROOT_PATH+"/www/static/upload/1.jpg","1.jpg");
-    }
 }
