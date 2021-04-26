@@ -29,4 +29,11 @@ module .exports=class extends Index{
         }
     }
 
+    async downloadAction(){
+        const filePath=this.get("path");
+        const path=filePath.replace("http://127.0.0.1:8201",think.ROOT_PATH+"/www");
+        const fileName=filePath.replace("http://127.0.0.1:8201/static/image/","");
+        this.download(path,fileName);
+    }
+
 }
