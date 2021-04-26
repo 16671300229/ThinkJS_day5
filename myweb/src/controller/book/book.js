@@ -1,11 +1,11 @@
 const Index=require("../Base");
-const BrandService=require("../../service/book");
+const BookService=require("../../service/book");
 const fs = require('fs');
 module .exports=class extends Index{
     async indexAction() {
         const loginInfo=this.ctx.cookie("loginInfo");
         if (loginInfo!==undefined){
-            const books=await new BrandService().findAll();
+            const books=await new BookService().findAll();
             this.assign("books",books);
             await this.display("book/index.html");
         }else {
